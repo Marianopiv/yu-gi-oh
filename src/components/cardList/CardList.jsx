@@ -3,16 +3,11 @@ import IndividualCards from "../individualCards/IndividualCards";
 import { CardsProvContext } from "../provider/CardsProv";
 import loader from "./loader.png";
 import "./CardList.css";
-import { useNavigate } from "react-router-dom";
 const CardList = () => {
-  const { data, setData } = useContext(CardsProvContext);
-  const navigate = useNavigate();
+  const { data, clear } = useContext(CardsProvContext);
   const [name, setName] = useState(null);
 
-  const clear = () => {
-    navigate(-1);
-    setData(null);
-  };
+  
 
   const handleChange = (name) => {
     setName(name.toLowerCase());
@@ -21,7 +16,7 @@ const CardList = () => {
 
   return (
     <>
-      <div className="rounded-full fixed z-50 sm:rounded-lg sm:p-3 m-2 bg-yellow-500">
+      <div className="fixed z-50 rounded-lg p-3 m-2 bg-yellow-500">
         {" "}
         <button onClick={clear}> Go Back</button>
       </div>
@@ -33,7 +28,7 @@ const CardList = () => {
           {data && (
             <input
               onChange={(e) => handleChange(e.target.value)}
-              className="border-1 border"
+              className="border-2 border-black pt-2 mt-1"
               type="text"
             />
           )}
@@ -51,7 +46,7 @@ const CardList = () => {
             ) : (
               data.map((item) => (
                 <>
-                  <IndividualCards item={item} />
+                  <IndividualCards item={item} clear={clear} />
                 </>
               ))
             )

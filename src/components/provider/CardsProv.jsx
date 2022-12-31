@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export const CardsProvContext = createContext();
 const CardsProv = ({ children }) => {
   const [data, setData] = useState(null);
@@ -35,11 +36,17 @@ const CardsProv = ({ children }) => {
       setLoading(false);
     }
   };
+  const navigate = useNavigate();
+
+  const clear = () => {
+    navigate(-1);
+    setData(null);
+  };
 
   return (
     <>
       <CardsProvContext.Provider
-        value={{ fetchData, data, fetchFilter, setData}}
+        value={{ fetchData, data, fetchFilter, setData, clear, navigate}}
       >
         {children}
       </CardsProvContext.Provider>
