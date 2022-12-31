@@ -12,16 +12,16 @@ const Home = () => {
       <div className="App text-white bg-zinc-800 flex flex-col gap-3">
         <div className="flex items-center justify-center flex-row ">
           <div className="w-2/6 flex justify-center">
-            <img className="w-72 object-cover " src={yugi} alt="" />
+            <img className="w-72 object-cover hidden sm:flex " src={yugi} alt="" />
           </div>
-          <div className=" bg-zinc-800 w-2/6 flex flex-col gap-3 App-header">
+          <div className=" bg-zinc-800 sm:w-2/6 flex flex-col gap-3 App-header">
             <SearchList/>
-            <img src={title} alt="" />
+            <img className="" src={title} alt="" />
             <img src={puzzle} className="App-logo" alt="logo" />
             <h1>Card List Enciclopedia</h1>
           </div>
           <div className="w-2/6 flex justify-center">
-            <img className="w-72 object-cover" src={kaiba} alt="" />
+            <img className="w-72 object-cover hidden sm:flex" src={kaiba} alt="" />
           </div>
         </div>
       </div>
