@@ -72,8 +72,8 @@ export default function SearchList() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute sm:left-0 sm:right-30 sm:z-10 sm:mt-2  sm:w-96  divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1 flex flex-col items-center   ">
+        <Menu.Items className="absolute sm:-left-10 sm:z-10 sm:mt-2  sm:w-48  divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none max-h-96 overflow-auto">
+          <div className="py-1 flex flex-col items-center">
             <Menu.Item>
               {({ active }) => (
                 <button
@@ -88,7 +88,7 @@ export default function SearchList() {
               )}
             </Menu.Item>
           </div>
-          <div className="flex flex-wrap justify-between items-center ">
+          <div className="flex flex-wrap justify-between items-center">
             {types.map((item) => (
               <Menu.Item>
                 {({ active }) => (

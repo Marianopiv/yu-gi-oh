@@ -3,6 +3,7 @@ import IndividualCards from "../individualCards/IndividualCards";
 import { CardsProvContext } from "../provider/CardsProv";
 import loader from "./loader.png";
 import "./CardList.css";
+import arrows from "../../arrows.png"
 const CardList = () => {
   const { data, clear } = useContext(CardsProvContext);
   const [name, setName] = useState(null);
@@ -11,14 +12,13 @@ const CardList = () => {
 
   const handleChange = (name) => {
     setName(name.toLowerCase());
-    console.log(name);
   };
 
   return (
     <>
-      <div className="fixed z-50 rounded-lg p-3 m-2 bg-yellow-500">
+      <div onClick={clear} className="fixed z-50 rounded-lg p-3 m-2 bg-yellow-500 w-10 hover:cursor-pointer">
         {" "}
-        <button onClick={clear}> Go Back</button>
+        <img  src={arrows} alt="" />
       </div>
       <div className="flex flex-col gap-10 mt-16 sm:mt-0">
         <div className="flex justify-center gap-3 items-center flex-col sm:flex-row mt-5">

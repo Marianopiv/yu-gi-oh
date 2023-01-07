@@ -11,10 +11,8 @@ const CardsProv = ({ children }) => {
       const result = await axios.get(
         "https://db.ygoprodeck.com/api/v7/cardinfo.php?"
       );
-      console.log(result);
 
       setData(result.data.data);
-      console.log(data);
       setLoading(false);
     } catch (error) {
       console.log("No anduvo");
@@ -27,7 +25,6 @@ const CardsProv = ({ children }) => {
       const result = await axios.get(
         `https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}`
       );
-      console.log(result);
 
       setData(result.data.data);
       setLoading(false);
