@@ -5,9 +5,9 @@ import loader from "./loader.png";
 import "./CardList.css";
 import arrows from "../../arrows.png";
 
-const ITEMS_PER_PAGE = 50; // Number of items to display per page
+const ITEMS_PER_PAGE = 100; // Number of items to display per page
 
-const pagination = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+const pagination = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
 const CardList = () => {
   const { data, clear } = useContext(CardsProvContext);
@@ -66,7 +66,9 @@ const CardList = () => {
                     <IndividualCards item={item} clear={clear} />
                   </>
                 ))
+                
             )
+            
           ) : (
             <>
               <div className="flex flex-col items-center justify-center gap-20">
@@ -75,8 +77,10 @@ const CardList = () => {
             </>
           )}
         </div>
+        {data&&<div className="flex justify-center gap-2 flex-wrap mx-2">{pagination.map((item)=><button className="border-2 rounded-md p-1" onClick={()=>handlePageChange(item)}>{item}</button>)}</div>}
+        
       </div>
-      <div className="flex justify-center gap-2 flex-wrap mx-2">{pagination.map((item)=><button className="border-2 rounded-md p-1" onClick={()=>handlePageChange(item)}>{item}</button>)}</div>
+      
     </>
   );
 };
