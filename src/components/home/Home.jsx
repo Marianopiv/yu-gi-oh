@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React from "react";
 import "./home.css";
 import puzzle from "./puzzle.png";
 import title from "./title.gif";
