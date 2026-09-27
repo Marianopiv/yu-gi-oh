@@ -4,33 +4,26 @@ import { useNavigate } from "react-router-dom";
 export const CardsProvContext = createContext();
 const CardsProv = ({ children }) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
   const fetchData = async () => {
     try {
-      setLoading(true);
       const result = await axios.get(
         "https://db.ygoprodeck.com/api/v7/cardinfo.php?"
       );
 
       setData(result.data.data);
-      setLoading(false);
     } catch (error) {
       console.log("No anduvo");
-      setLoading(false);
     }
   };
   const fetchFilter = async (type) => {
     try {
-      setLoading(true);
       const result = await axios.get(
         `https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}`
       );
 
       setData(result.data.data);
-      setLoading(false);
     } catch (error) {
       console.log("No anduvo");
-      setLoading(false);
     }
   };
   const navigate = useNavigate();
