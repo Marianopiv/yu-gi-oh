@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import IndividualCards from "../individualCards/IndividualCards";
 import { CardsProvContext } from "../provider/CardsProv";
@@ -6,11 +6,8 @@ import arrows from "../../arrows.png";
 
 const DinamicPage = () => {
   const { name } = useParams();
-  const [chosen, setChosen] = useState(null);
   const { data, navigate } = useContext(CardsProvContext);
-  useEffect(() => {
-    setChosen(data.find((item) => item.name === name));
-  }, [data.name, chosen]);
+  const chosen = data?.find((item) => item.name === name);
 
   const clear = () => {
     navigate(-1);
